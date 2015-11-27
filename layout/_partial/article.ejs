@@ -20,12 +20,20 @@
         <% } %>
       <% } else { %>
         <%- post.content %>
+        <div class="article-rights-info">
+          <li>
+            <strong>版权声明：</strong>自由转载-保留署名-禁止商用-禁止演绎(<a target="_blank" href="http://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh_TW">知识共享4.0许可协议</a>)
+          </li>
+          <li><strong>发表时间：</strong><%= date(post.date, 'YYYY-MM-DD HH:mm:ss') %></li>
+          <li><strong>最后更新：</strong><%= date(post.updated, 'YYYY-MM-DD HH:mm:ss') %></li>
+          <li><strong>永久链接：</strong><%= page.permalink %></li>
+        </div>
       <% } %>
     </div>
     <footer class="article-footer">
-      <a data-url="<%- post.permalink %>" data-id="<%= post._id %>" class="article-share-link">Share</a>
+      <a data-url="<%- post.permalink %>" data-id="<%= post._id %>" class="article-share-link">分享</a>
       <% if (post.comments && config.disqus_shortname){ %>
-        <a href="<%- post.permalink %>#disqus_thread" class="article-comment-link">Comments</a>
+        <a href="<%- post.permalink %>#disqus_thread" class="article-comment-link">评论</a>
       <% } %>
       <%- partial('post/tag') %>
     </footer>
